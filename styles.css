@@ -1,0 +1,9 @@
+canvas{
+    display: flex;
+    justify-content: center;
+    background-color:gray;
+    /* position: absolute; */
+    /* top: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%); */
+}
