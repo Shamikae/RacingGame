@@ -4,49 +4,6 @@ let ctx = canvas.getContext("2d");
 let road = new Image;
 road.src = "./assets/Group 2.png";
 
-
-
-// var rightPressed = false;
-// var leftPressed = false;
-// var upPressed = false;
-// Key pressed
-// document.addEventListener("keydown", keyDownHandler, false);
-// Key press finished
-// document.addEventListener("keyup", keyUpHandler, false);
-// document.addEventListener("keyup", keyUpHandler, false);
-// document.addEventListener("mousemove", mouseMoveHandler, false);
-
-// function keyDownHandler(e) {
-//     if(e.keyCode == 39) {
-//         rightPressed = true;
-//     }
-//     else if(e.key == 37) {
-//         leftPressed = true;
-//     }
-//     else if(e.keyCode == 38) {
-//         upPressed = true;
-//     }
-// }
-
-// function keyUpHandler(e) {
-//     if(e.keyCode == 39) {
-//         rightPressed = false;
-//     }
-//     else if(e.key == 37) {
-//         leftPressed = false;
-//     }
-//     else if(e.keyCode == 38) {
-//         upPressed = false;
-//     }
-// }
-
-// function mouseMoveHandler(e) {
-//     var relativeX = e.clientX - canvas.offsetLeft;
-//     if(relativeX > 0 && relativeX < canvas.width) {
-//         paddleX = relativeX - paddleWidth/2;
-//     }
-// }
-
 road.onload = () => {
 // window.requestAnimationFrame() method tells the browser that you wish to perform an animation and requests that the browser calls a specified function to update an animation before the next repaint.
     requestAnimationFrame(gameLoop);
@@ -60,8 +17,6 @@ let carY = 0;
 let carX = 0;
 // let car2 = new Image;
 // car2.src = "./assets/car.png";
-
-
 let yOffSet = -512;
 
 window.addEventListener('keydown', (event) => { 
@@ -70,13 +25,30 @@ window.addEventListener('keydown', (event) => {
     console.log(event.key, 'keyevent')
     switch (event.key) { 
         // case 'ArrowUp' : style.top = `${parseInt(style.top) - modifier}px` ; break; 
-        case 'ArrowUp' : carY -= 10; break; 
+        case 'ArrowUp' :  
+            if(carY == 120) {
+                carY = 120;
+            }else{
+                carY += 5;
+            }
+            break; 
         // case 'ArrowDown' : style.top = `${parseInt(style.top) + modifier}px`; break;
-        case 'ArrowDown' : carY += 10; break; 
+        case 'ArrowDown' : 
+            if(carY === 0){
+                carY = 0;
+            }else{
+                carY -= 10;
+            } 
+            break;
         // case 'ArrowLeft' : style.left = `${parseInt(style.left) - modifier}px`; break;
-        case 'ArrowLeft' : carX -= 10; break;
+        case 'ArrowLeft' : 
+            carX -= 10; 
+            break;
         // case 'ArrowRight' : style.left = `${parseInt(style.left) + modifier}px`; break;
-        case 'ArrowRight' : carX += 10; break;
+        case 'ArrowRight' : 
+            carX += 10; 
+            break;
+  
     }
 });
 
@@ -87,9 +59,10 @@ function gameLoop(){
     ctx.drawImage(road, 0, yOffSet + 512);
     ctx.drawImage(road, 0, yOffSet + 1024);
 
-    yOffSet += 10;
+    yOffSet += carY;
     
-    ctx.drawImage(car, 300 + carX, 200 + carY);
+    
+    ctx.drawImage(car, 350 + carX, 240 + carY);
     // ctx.drawImage(car2, 770, 400)
     
     requestAnimationFrame(gameLoop);
