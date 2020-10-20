@@ -4,39 +4,41 @@ let ctx = canvas.getContext("2d");
 let road = new Image;
 road.src = "./assets/Group 2.png";
 
-var rightPressed = false;
-var leftPressed = false;
-var upPressed = false;
+
+
+// var rightPressed = false;
+// var leftPressed = false;
+// var upPressed = false;
 // Key pressed
-document.addEventListener("keydown", keyDownHandler, false);
+// document.addEventListener("keydown", keyDownHandler, false);
 // Key press finished
-document.addEventListener("keyup", keyUpHandler, false);
+// document.addEventListener("keyup", keyUpHandler, false);
 // document.addEventListener("keyup", keyUpHandler, false);
 // document.addEventListener("mousemove", mouseMoveHandler, false);
 
-function keyDownHandler(e) {
-    if(e.keyCode == 39) {
-        rightPressed = true;
-    }
-    else if(e.key == 37) {
-        leftPressed = true;
-    }
-    else if(e.keyCode == 38) {
-        upPressed = true;
-    }
-}
+// function keyDownHandler(e) {
+//     if(e.keyCode == 39) {
+//         rightPressed = true;
+//     }
+//     else if(e.key == 37) {
+//         leftPressed = true;
+//     }
+//     else if(e.keyCode == 38) {
+//         upPressed = true;
+//     }
+// }
 
-function keyUpHandler(e) {
-    if(e.keyCode == 39) {
-        rightPressed = false;
-    }
-    else if(e.key == 37) {
-        leftPressed = false;
-    }
-    else if(e.keyCode == 38) {
-        upPressed = false;
-    }
-}
+// function keyUpHandler(e) {
+//     if(e.keyCode == 39) {
+//         rightPressed = false;
+//     }
+//     else if(e.key == 37) {
+//         leftPressed = false;
+//     }
+//     else if(e.keyCode == 38) {
+//         upPressed = false;
+//     }
+// }
 
 // function mouseMoveHandler(e) {
 //     var relativeX = e.clientX - canvas.offsetLeft;
@@ -52,12 +54,31 @@ road.onload = () => {
 // Must load image before calling the drawImage() method. To ensure that the image has been loaded, you can call drawImage() from window.onload() or from document.getElementById("imageID").onload.
 let car = new Image;
 car.src = "./assets/car1.png";
-
+car.className = "testing";
+let modifier = 5; 
+let carY = 0;
+let carX = 0;
 // let car2 = new Image;
 // car2.src = "./assets/car.png";
 
 
 let yOffSet = -512;
+
+window.addEventListener('keydown', (event) => { 
+    // const { style } = car; 
+    // console.log(style.top,'car top')
+    console.log(event.key, 'keyevent')
+    switch (event.key) { 
+        // case 'ArrowUp' : style.top = `${parseInt(style.top) - modifier}px` ; break; 
+        case 'ArrowUp' : carY -= 10; break; 
+        // case 'ArrowDown' : style.top = `${parseInt(style.top) + modifier}px`; break;
+        case 'ArrowDown' : carY += 10; break; 
+        // case 'ArrowLeft' : style.left = `${parseInt(style.left) - modifier}px`; break;
+        case 'ArrowLeft' : carX -= 10; break;
+        // case 'ArrowRight' : style.left = `${parseInt(style.left) + modifier}px`; break;
+        case 'ArrowRight' : carX += 10; break;
+    }
+});
 
 function gameLoop(){
     if(yOffSet>= 0) yOffSet = -512;
@@ -67,22 +88,24 @@ function gameLoop(){
     ctx.drawImage(road, 0, yOffSet + 1024);
 
     yOffSet += 10;
-    ctx.drawImage(car, 490, 400);
+    
+    ctx.drawImage(car, 300 + carX, 200 + carY);
     // ctx.drawImage(car2, 770, 400)
+    
     requestAnimationFrame(gameLoop);
 }
 
-function draw() {
-    ctx.clearRect(0,0, canvas.clientWidth, canvas.height );
-    if (rightPressed) {
-        X += 5;
-    }
-    else if (leftPressed) {
-        X -= 5;
-    }
-    else if (upPressed) {
-        Y -= 5;
-    }
-    ctx.drawImage(car, X, Y);
-    requestAnimationFrame(draw);
-}
+// function draw() {
+//     ctx.clearRect(0,0, canvas.clientWidth, canvas.height );
+//     if (rightPressed) {
+//         X += 5;
+//     }
+//     else if (leftPressed) {
+//         X -= 5;
+//     }
+//     else if (upPressed) {
+//         Y -= 5;
+//     }
+//     ctx.drawImage(car, X, Y);
+//     requestAnimationFrame(draw);
+// }
