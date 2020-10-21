@@ -15,12 +15,15 @@ car.className = "testing";
 let modifier = 5; 
 let carY = 0;
 let carX = 0;
+let person1 = new Image(2,2);
+person1.src = "./assets/manWalking.png"
+let cash = new Image;
+cash.src = "./assets/goldDollar.png"
 // let car2 = new Image;
 // car2.src = "./assets/car.png";
 let yOffSet = -512;
 
 window.addEventListener('keydown', (event) => { 
-    // const { style } = car; 
     // console.log(style.top,'car top')
     console.log(event.key, 'keyevent')
     switch (event.key) { 
@@ -52,8 +55,13 @@ window.addEventListener('keydown', (event) => {
     }
 });
 
+// function pedestrian(){
+//     if(yOffSet >= 0) yOffSet = -512;
+//     ctx
+// }
+
 function gameLoop(){
-    if(yOffSet>= 0) yOffSet = -512;
+    if(yOffSet >= 0) yOffSet = -512;
     // drawImage() method draws an image, canvas, or video onto the canvas.It can also draw parts of an image, and/or increase/reduce the image size.
     ctx.drawImage(road, 0, yOffSet);
     ctx.drawImage(road, 0, yOffSet + 512);
@@ -62,9 +70,10 @@ function gameLoop(){
     yOffSet += carY;
     
     
-    ctx.drawImage(car, 350 + carX, 240 + carY);
+    ctx.drawImage( car, 350 + carX, 240 + carY);
     // ctx.drawImage(car2, 770, 400)
-    
+    ctx.drawImage(person1, 400, 25);
+    ctx.drawImage(cash, 600, 25);
     requestAnimationFrame(gameLoop);
 }
 
