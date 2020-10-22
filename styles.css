@@ -1,8 +1,81 @@
-body{
+/* body{
     display: flex;
     justify-content: left;
     background-color: white;
-}
-/* canvas{
-   
 } */
+canvas{
+   background-color: red;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   border: 10px solid black;
+   border-radius: 10px;
+   position: absolute;
+}
+#scoreboard{
+    width: 980px;
+    height: 850px;
+    position: absolute;
+    top: 63%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#scoreboard.inner-board{
+    width: inherit;
+    height: inherit;
+    position: relative;
+}
+#scoreboard.inner-board.fuel-meter{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    display: flex;
+}
+#scoreboard.inner-board.fuel-meter.container{
+    width: 100px;
+    padding: 0px 5px;
+}
+#scoreboard.inner-board.fuel-meter.fuel-level-container.fuel-level{
+    width: 50px;
+    height: 20px;
+    background-color: limegreen;
+}
+.meter-box{
+    color: red;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#scoreboard.inner-board.time-meter{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: flex;
+}
+#scoreboard.inner-board.time-meter.label{
+    margin-right: 10px;
+}
+#scoreboard.inner-board.speedo-meter{
+    position: absolute;
+    left: 10px;
+    top: 50px;
+    display: flex;
+}
+#scoreboard.inner-board.speedo-meter.speed{
+    width: 30px;    
+    text-align: right;
+}
+#scoreboard.inner-board.speedo-meter.unit{
+    margin-left: 5px;
+}
+#scoreboard.inner-board.distance-meter{
+    position: absolute;
+    right: 10px;
+    top: 50px;
+    display: flex;
+}
+#scoreboard.inner-board.distance-meter.distance{
+    margin-right: 10px;
+}
+
+
