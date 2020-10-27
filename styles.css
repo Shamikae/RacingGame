@@ -1,81 +1,163 @@
-/* body{
-    display: flex;
-    justify-content: left;
-    background-color: white;
-} */
 canvas{
-   background-color: red;
+   background-color: black;
+   position: absolute;
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
-   border: 10px solid black;
+   border: 10px solid red;
    border-radius: 10px;
-   position: absolute;
+   z-index: -2;
 }
+
+#Parent{
+    height: 850px;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
 #scoreboard{
     width: 980px;
     height: 850px;
     position: absolute;
-    top: 63%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: -1;
 }
-#scoreboard.inner-board{
-    width: inherit;
+
+#scoreboard .inner-board{
+    width:inherit;
     height: inherit;
     position: relative;
 }
-#scoreboard.inner-board.fuel-meter{
+
+#scoreboard .inner-board .fuel-meter{
     position: absolute;
-    left: 10px;
-    top: 10px;
-    display: flex;
+    left:10px;
+    top:10px;
+    display: flex;   
 }
-#scoreboard.inner-board.fuel-meter.container{
-    width: 100px;
+
+#scoreboard .inner-board .fuel-meter .fuel-level-container{
+    width:100px;
     padding: 0px 5px;
 }
-#scoreboard.inner-board.fuel-meter.fuel-level-container.fuel-level{
-    width: 50px;
+
+#scoreboard .inner-board .fuel-meter .fuel-level-container .fuel-level{
+    width:50px;
     height: 20px;
-    background-color: limegreen;
+    background-color:green;
 }
+
 .meter-box{
-    color: red;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px 10px;
+    background-color: rgba(0,0,0,0.5);
+    padding:5px 10px;
+    color:white;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-#scoreboard.inner-board.time-meter{
+
+#scoreboard .inner-board .time-meter{
     position: absolute;
-    right: 10px;
-    top: 10px;
-    display: flex;
+    right:10px;
+    top:10px;
+    display: flex;            
 }
-#scoreboard.inner-board.time-meter.label{
+
+#scoreboard .inner-board .time-meter .label{
     margin-right: 10px;
+    
 }
-#scoreboard.inner-board.speedo-meter{
+
+#scoreboard .inner-board .speedo-meter{
     position: absolute;
-    left: 10px;
-    top: 50px;
-    display: flex;
+    left:10px;
+    top:50px;
+    display: flex;            
 }
-#scoreboard.inner-board.speedo-meter.speed{
-    width: 30px;    
+
+#scoreboard .inner-board .speedo-meter .speed{
+    width:30px;
     text-align: right;
 }
-#scoreboard.inner-board.speedo-meter.unit{
-    margin-left: 5px;
+
+#scoreboard .inner-board .speedo-meter .unit{
+    margin-left:5px;
 }
-#scoreboard.inner-board.distance-meter{
+
+#scoreboard .inner-board .distance-meter{
     position: absolute;
-    right: 10px;
-    top: 50px;
-    display: flex;
+    right:10px;
+    top:50px;
+    display: flex;            
 }
-#scoreboard.inner-board.distance-meter.distance{
+
+#scoreboard .inner-board .distance-meter .distance{
     margin-right: 10px;
 }
 
+.score{
+    position: absolute;
+    left:10px;
+    top:85px;
+    display: flex;
+}
 
+.score-label{
+    margin-left: 10px;
+}
+
+#scoreboard .inner-board .messages{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width: inherit;
+    height: inherit;
+}
+
+/ #scoreboard .inner-board .messages .try-again{
+    background-image:url('Projects/RaceGame/assets/goldDollar.png');
+    width:inherit;
+    height: inherit;
+    display:none;
+}
+
+#scoreboard .inner-board .messages .game-over{
+    font-family: 'Georgia, serif;';
+    color:red;
+    font-size: 72px;
+    text-align: center;
+    
+    padding-top: 30%;
+    width:inherit;
+    height: inherit;
+    display:none;
+}
+
+#scoreboard .inner-board .messages .game-over .game-over-message{
+    font-size: 24px;
+    color:black;
+    background-color:rgba(182, 231, 137, 0.5);
+    padding: 10px;
+    margin: 0px 30px;
+}
+
+#scoreboard .inner-board .messages .game-over .score-taken{
+    font-family: 'OCR A Std';
+    font-size: 36px;
+    color:white;
+    background-color:black;
+    padding: 20px;
+    padding-bottom: 10px;
+    margin: 10px 50px;
+}
+
+#scoreboard .inner-board .messages .game-over button{
+    font-family: 'Hobo Std Medium';
+    font-size: 36px;
+    border-radius: 5px;
+}

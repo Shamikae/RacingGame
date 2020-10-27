@@ -4,27 +4,31 @@
         <title> Street Racer</title>
         <link rel="stylesheet" href="styles.css" />
     </head>
-    <body>
-        <canvas id="gameCanvas" height='688' width='1008'></canvas>
-
+    <body>  
+        <div id ='Parent'>
+            <div id="startGame">
+            <img src='./assets/Frame 1.png'></div>
+            
+        </div>
+        <canvas id="gameCanvas" height='850' width='1008'></canvas>        
         <div id="scoreboard">
             <div class="inner-board">
-                <div class= "fuel-meter meter-box">
-                    <div class="label">FUEL
-                    </div>
+                <div class="fuel-meter meter-box">
+                    <div class="label">FUEL</div>
                     <div class="fuel-level-container">
                         <div class="fuel-level"></div>
                     </div>
-                </div><!-- end of fuel-meter-->
+                </div><!-- End of fuel-meter-->
                 <div class="time-meter meter-box">
+                    <!-- <button id="start-button">Start</button> -->
                     <div class="label">
                         TIME LAPS:-
                     </div>
-                    <div class="Time">
-                        00:00:00
+                    <div class="time">
+                        15s
                     </div>
-                </div><!-- end of time-meter-->
-                <div class="speedo-meter meter.box">
+                </div><!-- End of time-meter-->
+                <div class="speedo-meter meter-box">
                     <div class="speed">
                         0
                     </div>
@@ -32,16 +36,37 @@
                         M/h
                     </div>
                 </div><!-- speedo-meter-->
-                <div class="distance">
-                    10 Ms
+            
+                <div class="distance-meter meter-box">
+                    <div class="distance">
+                        10 Ms
+                    </div>
+                    <div class="label">
+                        LEFT
+                    </div>
+                </div><!-- distance-meter-->
+                <div class="score meter-box">
+                    <div class="score-num">
+                         0
+                    </div>
+                    <div class="score-label">
+                        SCORE
+                    </div>
+                </div><!--score-count-->
+                <div class="messages">
+                    <div class="try-again">
+                    </div>
+                    <div class="game-over">
+                        <div>Game Over</div>
+                        <div class="game-over-message">Race Score:</div>
+                        <div class="score-taken">0</div>
+                        <div class="game-over-message top">Top Score</div>
+                        <button>Race Again</button>
+                    </div>
                 </div>
-                <div class="label">
-                    LEFT
-                </div>
-            </div><!-- distance-meter-->
+            </div>
+            
         </div>
-<!-- </div> -->
-  
-    <script src="scripts.js"></script>
+        <script src="scripts.js"></script>
     </body>
 </html>
