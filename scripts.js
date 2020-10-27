@@ -269,7 +269,7 @@ function gameLoop(){
     obstacleLogic(rightObstacle);
 
     draw(player1);
-
+// If collision detected road obstacle disappears or else it continues along screen
     if(isCollision(player1, leftObstacle)){
         obstacleDisappear(leftObstacle);
     } else if(leftObstacle.appears){
