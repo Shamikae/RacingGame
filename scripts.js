@@ -9,8 +9,6 @@ document.getElementById('startGame').addEventListener('click',function startGame
     let child = document.getElementById('startGame');
     parent.removeChild(child)
 
-    
-    // console.log('countdown')
     countDown();
 });
 
@@ -40,17 +38,17 @@ let obj4 = new Image;
 obj4.src = "./assets/goldDollar.png";
 obj4.alt = "gold-dollar";
 let obj5 = new Image;
-obj5.src = "./assets/car.png"
+obj5.src = "./assets/car.png";
 obj5.alt = "car";
 
-var objArray = [obj1, obj2, obj3, obj4, obj5]
+var objArray = [obj1, obj2, obj3, obj4, obj5];
 var incomingObjs = [];
 var count = 0;
 let pause = false;
 
 let yOffSet = -10;
 
-
+//
 function randomizer(num){
     return Math.floor(Math.random() * num);
 }
@@ -60,9 +58,9 @@ const gameMisc = {
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    const startBtn = document.querySelector('#start-button')
+    const startBtn = document.querySelector('start-button')
     
-    startBtn.addEventListener('click', countDown)
+    // startBtn.addEventListener('click', countDown)
     
 })
 function countDown(){
@@ -112,10 +110,10 @@ function Obstacle(img, x, y, width, height, speedMod, mainMod, rx = null, lx = n
 function updateCar(car, x, y){
     car.rx = car.x + (car.width/2);
     car.lx = car.x - (car.width/2);
-    // car.x = x;
+    
     car.ty = car.y - (car.height/2);
     car.by = car.y + (car.height/2);
-    // car.y = y;
+    
 }
 // Calculates to get center of object
 function updateObstacle(obstacle){
