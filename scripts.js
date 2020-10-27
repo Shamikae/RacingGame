@@ -5,14 +5,12 @@ const timeDisplay = document.querySelector('.time')
 
 document.getElementById('startGame').addEventListener('click',function startGame(){
 
-
-    //Removes image after click 
     let parent = document.getElementById('Parent');
     let child = document.getElementById('startGame');
     parent.removeChild(child)
 
     
-    console.log('countdown')
+    // console.log('countdown')
     countDown();
 });
 
@@ -62,11 +60,9 @@ const gameMisc = {
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    const startBtn = document.querySelector('#startGame')
+    const startBtn = document.querySelector('#start-button')
     
     startBtn.addEventListener('click', countDown)
-    
-
     
 })
 function countDown(){
@@ -77,9 +73,7 @@ function countDown(){
             clearInterval(num)
             alert(`Game over, your score is ${scoreNode.innerText}`)
                 
-                window.location.reload();
-            
-            
+                window.location.reload();            
         }
         timeDisplay.innerHTML = timeLeft
         timeLeft -=1
@@ -87,20 +81,7 @@ function countDown(){
     }, 1000)
     
 }
-
-// function Scoreboard(game){
-//     this.game = game;
-//     this.timeMeter = document.querySelector(".time-meter .time");
-//     this.startTime = Date.now();
-
-//     function updateTime(){
-//         let timeElapsed = Date.now() - this.startTime;
-//         this.timeMeter.innerHTML = timeElapsed;
-//     }
-// }
-
-
-
+//Class in function syntax with function constructor
 function Car(img, x, y, width, height, rx = null, lx = null, ty = null, by = null){
     this.rx = rx;
     this.lx = lx;
@@ -136,7 +117,7 @@ function updateCar(car, x, y){
     car.by = car.y + (car.height/2);
     // car.y = y;
 }
-
+// Calculates to get center of object
 function updateObstacle(obstacle){
     obstacle.rx = obstacle.x + (obstacle.width/2);
     obstacle.lx = obstacle.x - (obstacle.width/2);
@@ -162,12 +143,9 @@ const leftObstacle = new Obstacle(objArray[Math.floor(Math.random() * objArray.l
 
 const rightObstacle = new Obstacle(objArray[Math.floor(Math.random() * objArray.length)], 650, 0, 60, 90, 0, 5);
 
-// const timer = new Scoreboard(startTime);
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 window.addEventListener('keydown', (event) => { 
-    // console.log(event.key, 'keyevent')
-    // In herer might need to update obstacle logic ->
     switch (event.key) { 
         case 'ArrowUp' :  
             if(player1.y == 20) {
@@ -200,12 +178,10 @@ window.addEventListener('keydown', (event) => {
     }
 });
 
-// 
 function obstacleLogic(ob){
     // We can have a speed modifier for each lane
-    // After incoming var reaches end reset and allow for randomizer
-    // const screenBttm = gameMisc.bttmOfScreenY;
-
+    // After incoming var reaches end it resets and allows for randomizer
+    
     if(ob.speedMod === 0){
         ob.speedMod = randomizer(ob.mainMod) + 1;
     }
@@ -215,12 +191,12 @@ function obstacleLogic(ob){
         ob.speedMod = randomizer(ob.mainMod);
 
         ob.img = objArray[randomizer(objArray.length - 1)]
-        //ob.img = // some random image - logic goes here
+        
     } else {
         ob.y += ob.speedMod;
     }
 
-    // Check if obstacle was removed
+    // Checks if obstacle was removed
     if(!ob.appears && ob.y === 0){
         ob.appears = true;
     }
@@ -251,8 +227,6 @@ function isCollision(obj1, obj2){
 
 }
 
-
-
 function draw(obj){
     ctx.drawImage(obj.img, obj.x, obj.y, obj.width, obj.height);
 }
@@ -282,7 +256,6 @@ function gameLoop(){
     ctx.drawImage(road, 0, yOffSet + 680); //second print of road image
     ctx.drawImage(road, 0, yOffSet + 1008);//third print of road image to make seamless
 
-    //increment road image by 10 yOffSet += 10;
     yOffSet += player1.y-500;
  
     updateCar(player1);
